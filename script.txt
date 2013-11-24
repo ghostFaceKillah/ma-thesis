@@ -1,0 +1,107 @@
+Deep learning stało się buzzword w ostatnich latach. Związane
+jest to z wieloma czynnikami, spośród których najważniejsze to coraz szersza
+popularność zbiorów danych w stylu big data, rozwój metod optymalizacji
+ oraz znaczący wzrost mocy obliczeniowej komputerów.
+
+Heurystyczny wstęp do deep learning 
+
+wyobraźmy sobie że próbujemy rozpoznać czyjś charakter pisma - lub jeszcze
+prościej, czy ktoś napisał cyfrę 7 lub 9. Mózg człowieka, przyzwyczajony poprzez
+wielokrotną obserwację setek tysięcy znaków automatycznie zauważa poziomą
+linię wraz z pewną sekcją u góry która kończy się czymś u góry. Jeśli 
+element u góry jest kółkiem - lub przynamniej jest do kółka bardziej 
+  podobobny aniżeli do linii zdecydujemy wtedy, że element ten jest raczej
+  cyfrą 9 aniżeli cyfrą 7. Choć czynność rozpoznawania tej cyfry wygląda 
+  niepozornie nietrudno sobie przypomnieć, że właśnie w ten sposób dzieci
+  uczą się rozróżniać 7 od 9. Istota systemu rozpoznawania znaków
+  jest na prawdę godna podziwu: aby rozpoznać literkę dziecko korzysta najpierw
+  z algorytmu wyszukującego kółka i kreski w widzianym obraku
+  , a następnie konstruje z ich rozwiąń rozwiązanie wyjściowego proble,u.
+
+  Tak móżna też zdefiniować deep learning. Jest to pewien sposób myślenia
+  o machine learning który polega na odkrywaniu poziomów abstrakcji w danych
+  dzięki którym badanie mniejszych struktur umożliwia znacząco bardziej 
+  wyraźne inferowanie informacji o wyższych strukturach w danych.
+
+Na czym polega przewaga deep learning nad klasycznymi algorytmami?
+
+Obecnie algorytmy maszynowe w bardzo dużym stopniu zależą od sposobu 
+prezentowania ich algorytmowi machine learningowemu. Przykładowo, 
+jeśli zajmujemy się problemem klasyfikacji poczty elektronicznejrna spam oraz
+wiadomości pożądane, to wejściowy dokument (list) możemy przedstawiać jako
+n-gram bądź jako worek słów (bag-of-words). W zależności od tej reprezentacji 
+otrzymywać różne skuteczności. Koncepcja deep learning jest próbą uniezależnienia 
+się od tego reprezentacji wejścia. Nie podlega wątpliwości, że jeśli chcemy poruszać
+  się w kierunku ogólniejszej sztucznej inteligencji to musimy nauczyć się
+abstrachować od reprezentacji wiedzyy (tworzyć bardziej abstrakcyjne reprezentacje
+wiedzy).
+
+Głębokie uczenie się (deep learning) stara się poruszać w tym kierunku poprzez
+poszukiwanie "dobrej reprezentacji" danych wejściowych popreze używanie 
+kombinacji nieliniowych transormacji danych wejściowych.
+
+W sensie deep learning dobra repreznetacja danych weściowych to taka repreznetacja
+która w jak największym stopniu potrafi rozwikłać czynniki zmienności 
+z danych wejściowych. 
+
+Wyniki uzyskiwane w wieluy dziedzinach wskazują na to że deep learning jest znacząco
+lepsza od wcześniejszych metdo. Jest ona jednym z podstawowych czynników stojących
+za sukcesami rozpoznawaniem mowy przez firmy Google czy Microsoft, 
+nowymi metodami rozpoznawania obrazów (sukcesy z cyframi), rozpozanwaniem obiektów.
+Deep learning zostało wybrane za jedną z najważniejszych technologii 2013 przez
+Mit technology review.
+
+A więc jak budować deep representation danych?
+
+Głównym pomysłem stojącym za generowaniem takich reprezentacji jest budowanie
+hierachii cech poziom po poziomie, gdzie każdy kolejny poziom jako wejście
+bierze wyjście poprzedniego modelu. Przeciwstawnym podejściem jest wykorzystywanie
+"płytkich" reprezentacji, a więc przykładowo regreji albo svm
+
+łatwo prześledzić genezę takiego podejścia
+Genezą takiego podejścia jest skalowanie i normalizacja do 0,1 lub (-1
+
+dobrym przykładem takiego podejścia jest sposób w jaki sieć neuronowa agreguje
+wyjścia z każdej kolejnej wastwy.
+
+$$$$ Interpretacje uczenia się reprezentacyjnego  $$$
+W literaturze istnieją dwie podstawowe metody interpretacji tych metod:
+
+probablistyczne modele graficzne, gdzie nodey w każdym layerze traktowane są jako
+zmienne ukryte. W tym przypadku interesuje nas rozkład danych wejściowych i 
+zmienne ukryte h, które opisują rozkład łączny p(x,h). ZMienne te opisują
+
+Direct encoding models takie jak nerual networki.
+
+Jako pierwszy najbardziej podstawowy przykład możemy rozważyć PCA, która
+jest pomiędzy tymi. Wyjaśnienie co robi PCA
+
+Z punktu widzenia probablistycznego PCA to po prostu poszukiwanie wektorów
+własnych macierzy kowariancji danych. Oznaczato że poszukujemy 
+cech, które wyjaśniają najwięcej wariancji w danych. 
+
+Z puktu widzenia kodowania danych (encoding viewpoint) PCA wykonuje 
+liniową zmianę zmiennych, aby stworzyć ukrytą reprezentację danych h, która
+ma niższą wymiarowość aniżeli oryginalne dane.
+
+Proszę zauważyć, że jako że PCA jest liniową transformacją X, to nie może 
+ono być za bardzo składane w wastwy, ponieważ złożenie takich operacji liniowych
+to po prostu inna operacja linowa. Nie istnieje więc żaden "wzrost abstrkacji"
+który miałby wynikać ze zwiększenia ilości warstw. 
+
+Aby przyjrzeć się więc głębszym niż jednowarstwowe reprezentacją danych,
+zastosujemy Restricted Bolztmazn Machines w kategorii spojerzenia probabilistycznego
+i nielinowe auto-enkodery w kategorii direct endocing.
+
+ *** Maszyny boltzmanna RBM ***
+maszyną boltzana nazywamy sieć symetrycznie sparowanych binarnych zmiennych 
+losowych. Oznacza to, że jest to spójny (każdy z każdym) nieskierowany graf.
+Graf ten podzielony jest na dwie części
+
+1. Część widoczna - która składa się na dane wejściowe
+2. część niewidoczna - która wyjaśnia zależności między zmiennymi 
+widocznymi poprzez ich wzajemne interakcje
+
+( Graficzna reprezentacja maszyny botzmana)
+
+Msa
